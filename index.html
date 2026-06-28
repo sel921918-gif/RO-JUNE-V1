@@ -1464,6 +1464,10 @@
             display: none;
         }
 
+        .description-card .card-content img {
+            display: none !important;
+        }
+
         .question-card {
             display: flex;
             flex-direction: column;
@@ -4764,8 +4768,8 @@ Ia melakukan beberapa percobaan dengan menggunakan 2 kompang yang berbeda namun 
 Seorang siswa mengamati seorang seniman yang sedang memainkan Rebab dalam latihan musik tradisional.
 Seniman tersebut mengubah tegangan senar untuk menghasilkan nada yang berbeda, sementara panjang senar yang dimainkan tetap sama.
 Siswa kemudian mencatat hasil pengamatannya sebagaimana pada gambar di atas.` : quiz2.q;
-            let desc1HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="width:100%;max-width:350px;height:250px;border-radius:12px;"></div><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc1Text}</div></div>`;
-            let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="width:100%;max-width:350px;height:250px;border-radius:12px;"></div><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc2Text}</div></div>`;
+            let desc1HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="width:100%;max-width:350px;height:250px;border-radius:12px;background:rgba(176,215,251,0.24);border:1px dashed rgba(127,167,225,0.7);display:flex;align-items:center;justify-content:center;color:var(--dark-outline);font-size:10px;">Area gambar kosong</div><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc1Text}</div></div>`;
+            let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="width:100%;max-width:350px;height:250px;border-radius:12px;background:rgba(176,215,251,0.24);border:1px dashed rgba(127,167,225,0.7);display:flex;align-items:center;justify-content:center;color:var(--dark-outline);font-size:10px;">Area gambar kosong</div><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc2Text}</div></div>`;
             const currentRegionName = state.idx > 0 ? cityData[state.idx].name : 'Angklung';
             const overlayTitle = `Kartu ${currentRegionName}`;
             
