@@ -2602,6 +2602,7 @@
             background: var(--soft-white);
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .photo-upload-box:hover {
@@ -2612,6 +2613,19 @@
         .photo-upload-box.has-file {
             border-color: var(--dark-outline);
             background: var(--soft-white);
+        }
+
+        .photo-upload-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--dark-outline);
+        }
+
+        .photo-upload-box.has-file .photo-upload-placeholder {
+            display: none;
         }
 
         #photo-input {
@@ -3584,8 +3598,11 @@
             <div class="form-group">
                 <label for="photo-input">Upload Foto:</label>
                 <div class="photo-upload-box" onclick="document.getElementById('photo-input').click()">
-                    <div style="font-size: 30px; margin-bottom: 10px;">📷</div>
-                    <p style="color: var(--dark-outline); margin: 0; font-weight: 600;">Klik untuk upload foto</p>
+                    <div class="photo-upload-placeholder">
+                        <div style="font-size: 30px;">📷</div>
+                        <p style="color: var(--dark-outline); margin: 0; font-weight: 600;">Klik untuk upload foto</p>
+                        <p style="margin: 0; color: #7a8fae; font-size: 0.95em;">Area kosong untuk gambar Anda</p>
+                    </div>
                 </div>
                 <input type="file" id="photo-input" accept="image/*">
                 <div class="photo-preview">
@@ -3785,6 +3802,7 @@
             document.getElementById('photo-input').value = '';
             document.getElementById('photo-preview-img').src = '';
             document.querySelector('.photo-preview').classList.remove('show');
+            document.querySelector('.photo-upload-box').classList.remove('has-file');
         }
 
         function saveInfoAndStartGame() {
@@ -4746,8 +4764,8 @@ Ia melakukan beberapa percobaan dengan menggunakan 2 kompang yang berbeda namun 
 Seorang siswa mengamati seorang seniman yang sedang memainkan Rebab dalam latihan musik tradisional.
 Seniman tersebut mengubah tegangan senar untuk menghasilkan nada yang berbeda, sementara panjang senar yang dimainkan tetap sama.
 Siswa kemudian mencatat hasil pengamatannya sebagaimana pada gambar di atas.` : quiz2.q;
-            let desc1HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:350px;height:250px;object-fit:contain;border-radius:12px;"/><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc1Text}</div></div>`;
-            let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:350px;height:250px;object-fit:contain;border-radius:12px;"/><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc2Text}</div></div>`;
+            let desc1HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="width:100%;max-width:350px;height:250px;border-radius:12px;"></div><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc1Text}</div></div>`;
+            let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="width:100%;max-width:350px;height:250px;border-radius:12px;"></div><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc2Text}</div></div>`;
             const currentRegionName = state.idx > 0 ? cityData[state.idx].name : 'Angklung';
             const overlayTitle = `Kartu ${currentRegionName}`;
             
